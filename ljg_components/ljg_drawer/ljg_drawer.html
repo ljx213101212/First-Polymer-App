@@ -1,0 +1,192 @@
+<!--<link rel="import" href="../../bower_components/polymer/polymer.html">-->
+
+
+<dom-module id="ljg-drawer">
+    <template>
+        <!--<input type="checkbox" id="ljg-drawer-toggle" name="ljg-drawer-toggle"/>-->
+        <!--<label for="ljg-drawer-toggle" id="ljg-drawer-toggle-label"></label>-->
+        <!--<header>Header</header>-->
+        <!--<nav id="drawer">-->
+            <!--<ul>-->
+                <!--<li><a href="#">Menu Item</a></li>-->
+                <!--<li><a href="#">Menu Item</a></li>-->
+                <!--<li><a href="#">Menu Item</a></li>-->
+                <!--<li><a href="#">Menu Item</a></li>-->
+            <!--</ul>-->
+        <!--</nav>-->
+        <!--<div id="ljg-page-content">-->
+            <!--<p>Page Content</p>-->
+        <!--</div>-->
+        <div class="content-wrapper"><content></content></div>
+        <style>
+
+            /* gets the actual input out of the way;
+            we're going to style the label instead */
+
+            :host ::content #ljg-drawer-toggle {
+                position: absolute;
+                opacity: 0;
+                /*transition: .25s ease-in-out;*/
+            }
+
+            :host ::content #ljg-drawer-toggle-label {
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                left: 0px;
+                top:0px;
+                height:50px;
+                width: 50px;
+                display: block;
+                position: fixed;
+                background: rgba(255,255,255,.0);
+                z-index: 998;
+                /*transition: .25s ease-in-out;*/
+                /*-webkit-transition: .25s ease-in-out;*/
+                /*-moz-transition: .25s ease-in-out;*/
+                /*-o-transition: .25s ease-in-out;*/
+            }
+
+            /* adds our "hamburger" menu icon */
+
+            :host ::content header,:host ::content #ljg-drawer-toggle-label, :host ::content #ljg-drawer-toggle,:host ::content #drawer{
+                transition: .25s ease-in-out;
+                -webkit-transition: .25s ease-in-out;
+                -moz-transition: .25s ease-in-out;
+                -o-transition: .25s ease-in-out;
+            }
+
+            :host ::content #ljg-drawer-toggle-label:before {
+                content: '';
+                display: block;
+                position: absolute;
+                height: 2px;
+                width: 24px;
+                background: #8d8d8d;
+                left: 13px;
+                top: 18px;
+                box-shadow: 0 6px 0 #8d8d8d, 0 12px 0 #8d8d8d;
+                /*-webkit-transition: .25s ease-in-out;*/
+                /*-moz-transition: .25s ease-in-out;*/
+                /*-o-transition: .25s ease-in-out;*/
+            }
+
+            :host ::content header {
+                width: 100%;
+                position: fixed;
+                top:0px;
+                left: 0px;
+                background: #efefef;
+                padding: 10px 10px 10px 50px;
+                font-size: 30px;
+                line-height: 30px;
+                z-index: 997;
+                /*-webkit-transition: .25s ease-in-out;*/
+                /*-moz-transition: .25s ease-in-out;*/
+                /*-o-transition: .25s ease-in-out;*/
+            }
+
+            /* drawer menu pane - note the 0px width */
+
+            :host ::content #drawer {
+                position: fixed;
+                top: 0;
+                left:-400px;
+                height: 100%;
+                width: 260px;
+                background: #2f2f2f;
+                overflow-x: hidden;
+                /*overflow-y: scroll;*/
+                padding: 20px;
+                -webkit-overflow-scrolling: touch;
+                z-index: 998;
+            }
+
+            /* actual page content pane */
+
+            :host ::content #ljg-page-content {
+                margin-left: 0px;
+                margin-top: 50px;
+                width: 100%;
+                height: calc(100% - 50px);
+                overflow-x:hidden;
+                overflow-y:scroll;
+                -webkit-overflow-scrolling: touch;
+                padding: 20px;
+            }
+
+            /* checked styles (menu open state) */
+
+            :host ::content #ljg-drawer-toggle:checked ~ #ljg-drawer-toggle-label {
+                height: 100%;
+                width: calc(100% - 300px);
+                background: rgba(255,255,255,.8);
+            }
+
+            :host ::content #ljg-drawer-toggle:checked ~ #ljg-drawer-toggle-label,
+            :host ::content #ljg-drawer-toggle:checked ~ header {
+                left: 300px;
+            }
+
+            :host ::content #ljg-drawer-toggle:checked ~ #drawer {
+                left: 0px;
+            }
+
+            :host ::content #ljg-drawer-toggle:checked ~ #ljg-page-content {
+                margin-left: 300px;
+            }
+
+            /* Menu item styles */
+
+            :host ::content #drawer ul {
+                list-style-type:none;
+            }
+
+            :host ::content #drawer ul a {
+                display:block;
+                padding:10px;
+                color:#c7c7c7;
+                text-decoration:none;
+            }
+
+            :host ::content #drawer ul a:hover {
+                color:white;
+            }
+
+            /* Responsive MQ */
+
+            @media all and (max-width:350px) {
+
+                :host ::content #ljg-drawer-toggle:checked ~ #ljg-drawer-toggle-label {
+                    height: 100%;
+                    width: 50px;
+                }
+
+                :host ::content #ljg-drawer-toggle:checked ~ #ljg-drawer-toggle-label,
+                :host ::content #ljg-drawer-toggle:checked ~ header {
+                    left: calc(100% - 50px);
+                }
+
+                :host ::content #ljg-drawer-toggle:checked ~ #drawer {
+                    width: calc(100% - 50px);
+                    padding: 20px;
+                }
+
+                :host ::content #ljg-drawer-toggle:checked ~ #ljg-page-content {
+                    margin-left: calc(100% - 50px);
+                }
+
+            }
+        </style>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'ljg-drawer'
+        });
+    </script>
+
+</dom-module>

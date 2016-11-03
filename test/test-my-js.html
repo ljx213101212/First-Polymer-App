@@ -1,0 +1,24 @@
+
+<dom-module id="test-my-js">
+    <template>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'test-my-js'
+        });
+
+        function CustomObject() {
+        }
+
+        function run() {
+            var data = new CustomObject()
+            setTimeout(function() {
+                data.i = 10
+            }, 100)
+        }
+        run();
+
+    </script>
+
+</dom-module>

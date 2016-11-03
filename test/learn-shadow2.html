@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>My Paragraph</p>
+<div>My Div</div>
+<button>My Button</button>
+
+<!-- Our template -->
+<template class="shadow-template">
+    <style>
+        :host(p) {
+            color: blue;
+        }
+
+        :host(div) {
+            color: green;
+        }
+
+        :host(button) {
+            color: red;
+        }
+
+        :host(*) {
+            font-size: 24px;
+        }
+    </style>
+    <content select=""></content>
+</template>
+
+<script>
+    // Create a shadow root for each element
+    var root1 = document.querySelector('p').createShadowRoot();
+    var root2 = document.querySelector('div').createShadowRoot();
+    var root3 = document.querySelector('button').createShadowRoot();
+
+    // We'll use the same template for each shadow root
+    var template = document.querySelector('.shadow-template');
+
+    // Stamp the template into each shadow root. Notice how
+    // the different :host styles affect the appearance
+    root1.appendChild(document.importNode(template.content, true));
+    root2.appendChild(document.importNode(template.content, true));
+    root3.appendChild(document.importNode(template.content, true));
+</script>
+</body>
+</html>

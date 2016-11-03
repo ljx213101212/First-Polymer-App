@@ -1,0 +1,140 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-badge/paper-badge.html">
+<link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../bower_components/iron-icon/iron-icon.html" >
+<link rel="import" href="../bower_components/iron-icons/iron-icons.html" >
+<link rel="import" href="../bower_components/iron-icons/communication-icons.html" >
+<link rel="import" href="../bower_components/iron-icons/social-icons.html" >
+<link rel="import" href="../bower_components/paper-button/paper-button.html" >
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-drawer-panel/paper-drawer-panel.html">
+<link rel="import" href="../ljg_components/ljg_drawer/ljg_drawer.html">
+
+<dom-module id="learn-md">
+    <template>
+        <ljg-drawer>
+
+
+
+            <input type="checkbox" id="ljg-drawer-toggle" name="ljg-drawer-toggle"/>
+            <label for="ljg-drawer-toggle" id="ljg-drawer-toggle-label"></label>
+            <header>Header</header>
+            <nav id="drawer">
+            <ul>
+            <li><a href="#">Menu Item</a></li>
+            <li><a href="#">Menu Item</a></li>
+            <li><a href="#">Menu Item</a></li>
+            <li><a href="#">Menu Item</a></li>
+            </ul>
+            </nav>
+            <div id="ljg-page-content">
+                <h3>paper-badge</h3>
+                <paper-icon-button icon="menu"></paper-icon-button>
+                <paper-icon-button icon="favorite"></paper-icon-button>
+                <paper-icon-button id="number2" icon="communication:email" alt="inbox">
+                </paper-icon-button>
+                <paper-badge for="number2" label="4" class="red">
+                </paper-badge>
+
+                <paper-icon-button id="icon2" icon="account-box" alt="account-box">
+                </paper-icon-button>
+                <paper-badge icon="social:mood" for="icon2" label="happy" class="blue">
+                </paper-badge>
+
+                <h3>paper-button</h3>
+
+                <div id="learn_md_shadow">
+                <paper-button on-tap="handleTap" class="learn-md-paper-button">Flat button</paper-button>
+                </div>
+                <paper-button raised>Raised button</paper-button>
+                <paper-button noink>No ripple effect</paper-button>
+                <paper-button toggles>Toggle-able button</paper-button>
+
+
+                <h3>paper-card</h3>
+                <paper-card class="my-card" heading="Emmental" image="http://placehold.it/350x150/FFC107/000000" alt="Emmental">
+                <div class="card-content">
+                Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental, Switzerland. It is one of the cheeses of Switzerland, and is sometimes known as Swiss cheese.
+                </div>
+                <div class="card-actions">
+                <paper-button>Share</paper-button>
+                <paper-button>Explore!</paper-button>
+                </div>
+                </paper-card>
+            </div>
+
+        </ljg-drawer>
+
+        <!--<h3>paper-badge</h3>-->
+        <!--<paper-icon-button icon="menu"></paper-icon-button>-->
+        <!--<paper-icon-button icon="favorite"></paper-icon-button>-->
+        <!--<paper-icon-button id="number2" icon="communication:email" alt="inbox">-->
+        <!--</paper-icon-button>-->
+        <!--<paper-badge for="number2" label="4" class="red">-->
+        <!--</paper-badge>-->
+
+        <!--<paper-icon-button id="icon2" icon="account-box" alt="account-box">-->
+        <!--</paper-icon-button>-->
+        <!--<paper-badge icon="social:mood" for="icon2" label="happy" class="blue">-->
+        <!--</paper-badge>-->
+
+        <!--<h3>paper-button</h3>-->
+
+        <!--<div id="learn_md_shadow">-->
+            <!--<paper-button on-tap="handleTap" class="learn-md-paper-button">Flat button</paper-button>-->
+        <!--</div>-->
+        <!--<paper-button raised>Raised button</paper-button>-->
+        <!--<paper-button noink>No ripple effect</paper-button>-->
+        <!--<paper-button toggles>Toggle-able button</paper-button>-->
+
+
+        <!--<h3>paper-card</h3>-->
+        <!--<paper-card class="my-card" heading="Emmental" image="http://placehold.it/350x150/FFC107/000000" alt="Emmental">-->
+            <!--<div class="card-content">-->
+                <!--Emmentaler or Emmental is a yellow, medium-hard cheese that originated in the area around Emmental, Switzerland. It is one of the cheeses of Switzerland, and is sometimes known as Swiss cheese.-->
+            <!--</div>-->
+            <!--<div class="card-actions">-->
+                <!--<paper-button>Share</paper-button>-->
+                <!--<paper-button>Explore!</paper-button>-->
+            <!--</div>-->
+        <!--</paper-card>-->
+
+
+
+        <style is="custom-style">
+            /* Need to position the badge to look like a text superscript */
+            .container > paper-badge {
+                --paper-badge-margin-left: 20px;
+                --paper-badge-margin-bottom: 0px;
+            }
+
+            .red {
+                --paper-badge-background: var(--paper-red-300);
+            }
+            .blue {
+                --paper-badge-background: var(--paper-light-blue-300);
+            }
+
+            .my-card{
+                width:30%;
+            }
+        </style>
+
+
+
+
+    </template>
+
+    <script>
+        Polymer({
+            is: 'learn-md',
+            handleTap: function() {
+                alert('Ow!');
+            }
+        });
+
+
+
+    </script>
+
+</dom-module>
